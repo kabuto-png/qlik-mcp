@@ -58,6 +58,18 @@ This will:
 - Configure Claude Desktop automatically
 - Configure Claude Code (`.mcp.json`)
 
+### Cowork Skills (Optional)
+
+For [Cowork](https://cowork.ai) users, pre-packaged skills are available in `cowork-skills/`:
+
+| Skill | Description |
+|-------|-------------|
+| `qlik.skill` | Control Qlik Sense - status, apps, sheets, selections |
+| `qlik-analyze.skill` | Analyze data from Qlik visualizations |
+| `qlik-report.skill` | Generate formatted reports from Qlik data |
+
+**To install:** Download the `.skill` file and use "Import skill" in Cowork.
+
 ### Manual Installation
 
 #### 1. Install MCP Server
