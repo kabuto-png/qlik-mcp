@@ -1,0 +1,40 @@
+{
+  "name": "qlik-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for controlling Qlik Sense via Claude",
+  "type": "module",
+  "main": "dist/mcp-server/index.js",
+  "bin": {
+    "qlik-mcp": "dist/mcp-server/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/mcp-server/index.ts",
+    "start": "node dist/mcp-server/index.js",
+    "setup": "bash install.sh",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/ws": "^8.5.10",
+    "tsx": "^4.15.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "qlik",
+    "claude",
+    "ai",
+    "automation"
+  ],
+  "license": "MIT"
+}
