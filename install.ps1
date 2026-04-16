@@ -29,11 +29,19 @@ if (-not (Test-Path $ClaudeConfigDir)) {
     New-Item -ItemType Directory -Path $ClaudeConfigDir -Force | Out-Null
 }
 
+# Get full path to node.exe
+$NodePath = (Get-Command node -ErrorAction SilentlyContinue).Source
+if (-not $NodePath) {
+    Write-Host "ERROR: Node.js not found in PATH. Please install Node.js first." -ForegroundColor Red
+    exit 1
+}
+
+# Use absolute paths (Windows paths need escaping in JSON)
 $McpConfig = @{
     mcpServers = @{
         qlik = @{
-            command = "node"
-            args = @($McpServerPath.Replace('\', '/'), "--debug")
+            command = $NodePath
+            args = @($McpServerPath)
         }
     }
 }

@@ -110,6 +110,35 @@ Add to your Claude Desktop config:
 
 For Claude Code, add to `.mcp.json` in project root (created by install script).
 
+### Claude Desktop vs Claude Code
+
+| Feature | Claude Desktop | Claude Code |
+|---------|---------------|-------------|
+| MCP Tools (38) | Yes | Yes |
+| Skills (`/qlik`, `/qlik-analyze`) | No | Yes |
+| Best for | Quick queries | Power users, automation |
+
+**Note:** Skills (slash commands) only work in Claude Code CLI/IDE extensions. Claude Desktop users can use all 38 MCP tools directly by asking Claude to interact with Qlik.
+
+### Windows Troubleshooting
+
+If MCP doesn't connect on Windows:
+
+1. **Check Node.js is installed:** Run `node --version` in PowerShell
+2. **Restart Claude Desktop** after running `install.ps1`
+3. **Check config file:** Open `%APPDATA%\Claude\claude_desktop_config.json` and verify paths are correct
+4. **Use absolute paths:** If issues persist, manually edit the config to use full path to `node.exe`:
+   ```json
+   {
+     "mcpServers": {
+       "qlik": {
+         "command": "C:\\Program Files\\nodejs\\node.exe",
+         "args": ["C:\\path\\to\\qlik-mcp\\dist\\mcp-server\\index.js"]
+       }
+     }
+   }
+   ```
+
 ## Usage
 
 ### Quick Start
